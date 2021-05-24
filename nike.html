@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .outerbox {
+        width: 90vw;
+        height: 900px;
+        display: flex;
+        border: 1px solid black;
+        margin: auto;
+      }
+      .box1 {
+        height: 100%;
+        width: 25%;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+      }
+      .box2 {
+        height: 100%;
+        width: 75%;
+        border: 1px solid black;
+      }
+      .box1 > input {
+        width: 70%;
+        margin-left: 15%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        height: 30px;
+        font-weight: bolder;
+      }
+      #name {
+        margin-top: 20%;
+      }
+      button {
+        width: 50%;
+        height: 50px;
+        margin-top: 4%;
+        margin-left: 15%;
+        color: aquamarine;
+        background-color: white;
+      }
+      .box2-1 {
+        width: 25%;
+        height: 35%;
+        margin: 50px;
+        border: 1px solid black;
+        float: left;
+      }
+      .div1 {
+        border: 1px solid black;
+        width: 300px;
+        height: 230px;
+        margin: 50px;
+        float: left;
+        margin-left: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outerbox">
+      <div class="box1">
+        <input type="text" placeholder="NAME" id="name" />
+        <input type="text" placeholder="PRICE" id="price" />
+        <input type="text" placeholder="DESCRIPTION" id="desc" />
+        <input type="text" placeholder="DATE OF DELIVERY" id="dod" />
+        <input type="url" placeholder="IMAGE" id="img" />
+        <button id="additem">ADD PRODUCT</button>
+      </div>
+      <div class="box2"></div>
+    </div>
+  </body>
+</html>
+<script>
+  var button = document.getElementById("additem");
+  button.addEventListener("click", additem1);
+  function additem1() {
+    var name = document.getElementById("name").value;
+    var price = document.getElementById("price").value;
+    var desc = document.getElementById("desc").value;
+    var dod = document.getElementById("dod").value;
+    var img = document.getElementById("img").value;
+    createpage(name, price, desc, dod, img);
+    function createpage(name, price, desc, dod, img) {
+      var items = document.querySelector(".box2");
+      var div = document.createElement(div);
+      div.setAttribute("class", "div1");
+
+      var name1 = document.createElement("tr");
+      name1.textContent = name;
+      div.appendChild(name1);
+      items.appendChild(div);
+
+      var price1 = document.createElement("tr");
+      price1.textContent = price;
+      div.appendChild(price1);
+      items.appendChild(div);
+
+      var desc1 = document.createElement("tr");
+      desc1.textContent = desc;
+      div.appendChild(desc1);
+      items.appendChild(div);
+
+      var dod1 = document.createElement("tr");
+      dod1.textContent = dod;
+      div.appendChild(dod1);
+      items.appendChild(div);
+
+      var img1 = document.createElement("tr");
+      img1.textContent = img;
+      div.appendChild(img1);
+      items.appendChild(div);
+
+      var button1 = document.createElement("button");
+      button1.innerText = "remove";
+      button1.style.width = "100px";
+      button1.addEventListener("click", remove);
+      div.appendChild(button1);
+      items.appendChild(div);
+
+      var button2 = document.createElement("button");
+      button2.innerText = "update";
+      button2.style.width = "100px";
+      button2.addEventListener("click", update);
+      div.appendChild(button2);
+      items.appendChild(div);
+    }
+    function remove(e) {
+      e.target.parentNode.remove();
+    }
+    function update() {
+      price.removeChild();
+    }
+  }
+</script>
